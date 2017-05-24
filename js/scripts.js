@@ -15,6 +15,18 @@ $(document).ready(function(){
 		// console.log(nowPlayingData);
 		var nowPlayingHTML = getHTML(nowPlayingData);
 		$('#movie-grid').html(nowPlayingHTML);
+		$('.movie-poster').click(function(){
+			// Change teh HTML inside the modal
+			var thisMovieId = $(this).attr('movie-id');
+			console.log(thisMovieId);
+			var thisMovieUrl = `${apiBaseUrl}/movie/${thisMovieId}?api_key=${apiKey}`;
+			$.getJSON(thisMovieUrl,(thisMovieData)=>{
+				console.log(thisMovieData);
+				$('#myModalLabel').html(thisMovieData.title);
+				// Open teh modal
+				$("#myModal").modal();
+			});
+		});
 	});
 
 	$('#movie-form').submit((event)=>{
@@ -35,7 +47,7 @@ $(document).ready(function(){
 		var newHTML = '';
 		for(let i = 0; i < data.results.length; i++){
 			var posterUrl = imageBaseUrl + 'w300' + data.results[i].poster_path;
-			newHTML += '<div class="col-sm-6 col-md-3">';
+			newHTML += '<div class="col-sm-6 col-md-3 movie-poster" movie-id='+data.results[i].id+'>';
 				newHTML += `<img src="${posterUrl}">`;
 			newHTML += `</div>`;
 		}
