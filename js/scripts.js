@@ -27,6 +27,20 @@ $(document).ready(function(){
 				$("#myModal").modal();
 			});
 		});
+		$grid = $('#movie-grid').isotope({
+			itemSelector: '.movie-poster'
+		});
+		$('#adventure').click(function(){
+			$grid.isotope({ filter: '.adventure' });
+		});
+		$('#action').click(function(){
+			$grid.isotope({ filter: '.action' });
+		});
+		$('#all-genres').click(function(){
+			$grid.isotope({ filter: '' });
+		});		
+		
+
 	});
 
 	$('#movie-form').submit((event)=>{

@@ -11,6 +11,9 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 
@@ -30,16 +33,18 @@
 				</form>
 			</div>
 
+			<div class="col-sm-12 text-center">
+				<button id="all-genres" class="btn btn-danger">All</button>			
+				<button id="adventure" class="btn btn-danger">Adventure</button>
+				<button id="action" class="btn btn-warning">Action</button>
+			</div>
+
 			<div id="movie-grid" class="col-sm-12">
 				<!-- jQuery, don't fail us now... get us the movie posters! -->
 			</div>
 		</div>
 	</div>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
